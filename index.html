@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="darklunarnix&#39;s status page provides information on the current status and incident history of darklunarnix.">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link rel="shortcut icon" href="https://statuspal.io/favicon/favicon-32x32-98d019a3d87a6a622c694bbc18839ce6.png?vsn=d">
+    <title>darklunarnix Status</title>
+    <link rel="stylesheet" href="https://statuspal.io/css/status_page-b081c1121d71f9e70c600febb9aeb22a.css?vsn=d">
+<style>
+    /* basic styles */
+  a {
+    color: #10BEFF;
+  }
+  .service-status .service-status--toggle-children {
+    color: #10BEFF;
+    border-color: #10BEFF;
+  }
+  header {
+    background: linear-gradient(to right, #FFF00F, #FF9200);
+  }
+  .theme-big-logo header {
+    background: none;
+  }
+  .theme-big-logo .header-container {
+    background: linear-gradient(to right, #FFF00F, #FF9200);
+  }
+  header a {
+    color: #000000;
+  }
+  h1.incident-title, .incidents-table a {
+    display: inline;
+    color: #FFF00F;
+  }
+
+  /* system status colors */
+
+  .system-status.type-none { background: #3BFF01; }
+  .system-status.type-scheduled { background: #FEFF00; }
+  .system-status.type-minor { background: #FFA500; }
+  .system-status.type-major { background: #E75A53; }
+
+  /* service status colors */
+
+  .status-type-major > .service-status--info .service-status--status,
+  .status-type-major > .service-status--info .service-status--icon {
+    color: #E75A53;
+  }
+  .status-type-minor > .service-status--info .service-status--status,
+  .status-type-minor > .service-status--info .service-status--icon {
+    color: #FFA500;
+  }
+  .status-type-scheduled > .service-status--info .service-status--status,
+  .status-type-scheduled > .service-status--info .service-status--icon {
+    color: #FEFF00;
+  }
+  .status-type-none > .service-status--info .service-status--status,
+  .status-type-none > .service-status--info .service-status--icon {
+    color: #3BFF01;
+  }
+
+  /* left border colors */
+
+  .service-status.status-type-major { border-left-color: #E75A53; }
+  .service-status.status-type-minor { border-left-color: #FFA500; }
+  .service-status.status-type-scheduled { border-left-color: #FEFF00; }
+  .service-status.status-type-none { border-left-color: #3BFF01; }
+
+  /* status page's incident per status colors */
+
+  .status-type-major .status-column { background: #E75A53; }
+  .status-type-minor .status-column { background: #FFA500; }
+  .status-type-scheduled .status-column { background: #FEFF00; }
+  .status-type-none .status-column { background: #3BFF01; }
+
+  /* incident time elapsed colors */
+
+  .incident--type-name-tag.status-type-major {
+    border-color: #E75A53;
+    color: #E75A53
+  }
+  .incident--type-name-tag.status-type-minor {
+    border-color: #FFA500;
+    color: #FFA500
+  }
+  .incident--type-name-tag.status-type-scheduled {
+    border-color: #FEFF00;
+    color: #FEFF00
+  }
+  .incident--type-name-tag.status-type-none {
+    border-color: #3BFF01;
+    color: #3BFF01
+  }
+  .tabs a.active {
+    background: #10BEFF;
+    color:  white;
+  }
+</style>
+    <script>
+      window.resourceBaseUrl = 'https://statuspal.io/';
+    </script>
+  </head>
+
+  <body class="status-page theme-default">
+    <!-- container -->
+    <div class="container-fluid">
+<div class="header-container header"> <!-- .header for backwards compatibility only -->
+    <header class="nav">
+      <div class="container">
+        <div class="brand-name-container">
+
+<a class="brand-name" href="https://astrophoenix954-github-io-darklunarnix.statuspal.io">darklunarnix Status</a>        </div>
+
+          <div class="menu-items">
+<a href="#" class="subscribe">
+Subscribe  <span class="hidden-sm"> to updates</span>
+</a>
+          </div>
+      </div>
+    </header>
+
+    <div class="container system-status-container">
+
+      <div class="system-status type-none">
+        <div class="system-status--description">
+All systems operational        </div>
+        <i class="service-status--icon ok"></i>
+      </div>
+
+      <div class="row about">
+This is darklunarnix&#39;s status page, here you&#39;ll find the current status and incident history of darklunarnix.
+      </div>
+    </div>
+</div>
+
+      <main role="main status_page">
+        <div class="container">
+<div class="services-status">
+</div>
+
+<div class="incidents-container">
+  <!-- Current incidents -->
+
+
+  <!-- Future maintenances -->
+
+
+  <!-- Past incidents -->
+
+
+  <!-- EO Incidents -->
+</div>
+
+<div class="row o-hidden incidents-history-graph">
+  <span class="uptime">
+    <span id="general_uptime_graph_percent"></span>% Uptime
+  </span>
+  <div id="general_uptime_graph" class="segments"><!-- content goes here --></div>
+  <div class="time-legends">
+    <span>60 days ago</span>
+    <span>Today</span>
+  </div>
+</div>
+
+<div class="row metrics"></div>
+
+<a class="previous-incidents float-right" href="/incidents">All incidents / maintenances</a>
+<div class="auto-refresh-label">
+This page is automatically updated every 60 seconds</div>
+
+<script>
+  window.displayGlobalUptimeGraph = true
+  window.statusPageRoot = 'https://astrophoenix954-github-io-darklunarnix.statuspal.io';
+  window.incidents = [];
+  window.locale = 'en';
+  window.localization = {
+    responseTimeChart: {"week":"Week","response_time":"Response time","month":"Month","day":"Day","average_abbrev":"Avg."},
+    uptimeGraph: {"uptime":"Uptime","today":"Today","days_ago":"days ago"}
+  };
+
+  // Colors used by the uptime history chart.
+  window.UPTIME_COLOR_MAJOR = '#E75A53';
+  window.UPTIME_COLOR_MINOR = '#FFA500';
+  window.UPTIME_COLOR_OK = '#3BFF01';
+</script>
+        </div>
+      </main>
+    </div>
+    <!-- /container -->
+
+  <footer class="footer">
+    <div class="container">
+<a href="//AstroPhoenix954.github.io/darklunarnix/">darklunarnix</a>    </div>
+  </footer>
+<div class="modal subscribe-modal">
+  <div class="modal-header">
+    <h3>Subscribe to get updates</h3>
+  </div>
+
+  <div class="modal-body">
+    <div class="tabs">
+        <a href="#" data-target="email-tab" class="active">Email</a>
+        <a href="#" data-target="slack-tab">Slack</a>
+        <a href="#" data-target="discord-tab">Discord</a>
+    </div>
+
+    <div class="tab-content">
+<form action="https://astrophoenix954-github-io-darklunarnix.statuspal.io/subscriptions" id="email-tab" method="post"><input name="_csrf_token" type="hidden" value="LwFFWDYaFzMoIzseH1B4UAEqMDg0GCkUv46iNXXpNzvii6-iEmJAS-fb"><input name="subscription[type]" type="hidden" value="email"><input id="subscription_email" name="subscription[email]" placeholder="your@email.com" type="email" autofocus required>          <div class="services-selection">
+<div class="subscription-services-selector">
+
+  <div class="filter-toggle">
+    <label>
+<input name="subscription[filter]" type="radio" value="all" checked>      All
+    </label>
+
+    <label>
+<input name="subscription[filter]" type="radio" value="services">      Select Services
+    </label>
+
+  </div>
+  <div class="services-fields" style='display: none'>
+  </div>
+</div>
+          </div>
+<div class=" h-captcha" data-sitekey="f963e3a6-8aa0-4eed-8537-fee0b907cd21" style="display: flex;justify-content: center; margin-bottom: 10px"></div><button type="submit">Subscribe</button>          <p class="data-info">We'll share your details with <a href="https://statuspal.io" target="_blank">Statuspal</a> (USA based servers) in order to send you updates. We'll keep your information safe and let you unsubscribe at any time.</p>
+</form>
+
+        <div class="slack-subscribe" id="slack-tab">
+<a href="https://statuspal.io/auth/slack/new?status_page=astrophoenix954-github-io-darklunarnix&amp;lang=en&amp;incident_id=">            <img alt="Add to Slack" height="40" width="139"
+              src="https://platform.slack-edge.com/img/add_to_slack.png"
+              srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+</a>          <p class="data-info">We'll share your details with <a href="https://statuspal.io" target="_blank">Statuspal</a> (USA based servers) in order to send you updates. We'll keep your information safe and let you unsubscribe at any time.</p>
+        </div>
+
+
+        <div class="discord-hook" id="discord-tab">
+<form action="https://astrophoenix954-github-io-darklunarnix.statuspal.io/subscriptions" id="discord-tab" method="post"><input name="_csrf_token" type="hidden" value="LwFFWDYaFzMoIzseH1B4UAEqMDg0GCkUv46iNXXpNzvii6-iEmJAS-fb"><input name="subscription[type]" type="hidden" value="discord"><input id="subscription_webhook_url" name="subscription[webhook_url]" placeholder="https://discordapp.com/api/webhooks/channelId/token" type="url" autofocus required>            <div class="services-selection">
+<div class="subscription-services-selector">
+
+  <div class="filter-toggle">
+    <label>
+<input name="subscription[filter]" type="radio" value="all" checked>      All
+    </label>
+
+    <label>
+<input name="subscription[filter]" type="radio" value="services">      Select Services
+    </label>
+
+  </div>
+  <div class="services-fields" style='display: none'>
+  </div>
+</div>
+            </div>
+<button type="submit">Subscribe</button></form>        </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop"></div>
+
+    <script src="https://statuspal.io/js/status_page-ac32b76d39f2ee720d002a78455ced51.js?vsn=d"></script>
+<script src="https://hcaptcha.com/1/api.js" async defer></script>  </body>
+</html>
